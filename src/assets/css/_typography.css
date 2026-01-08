@@ -1,0 +1,342 @@
+/* ==========================================================================
+   Typography
+   Base typography and prose component styles
+   ========================================================================== */
+
+@layer base {
+  /* Base body typography using fluid type scale */
+  body {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+  }
+
+  /* Headings with fluid sizes */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+  }
+
+  h1 {
+    font-size: var(--text-5xl);
+  }
+
+  h2 {
+    font-size: var(--text-4xl);
+  }
+
+  h3 {
+    font-size: var(--text-3xl);
+  }
+
+  h4 {
+    font-size: var(--text-2xl);
+  }
+
+  h5 {
+    font-size: var(--text-xl);
+  }
+
+  h6 {
+    font-size: var(--text-lg);
+  }
+
+  /* Small text */
+  small {
+    font-size: var(--text-sm);
+  }
+}
+
+/* ==========================================================================
+   Prose Component - Rich text content styling
+   ========================================================================== */
+
+@layer components {
+  .prose {
+    --tw-prose-body: theme(colors.zinc.700);
+    --tw-prose-headings: theme(colors.zinc.900);
+    --tw-prose-links: theme(colors.primary.700);
+    --tw-prose-bold: theme(colors.zinc.900);
+    --tw-prose-quotes: theme(colors.zinc.600);
+    --tw-prose-code: theme(colors.zinc.800);
+    --tw-prose-pre-bg: #1a1a2e;
+    --tw-prose-pre-code: #e2e8f0;
+    --tw-prose-captions: theme(colors.zinc.500);
+    --tw-prose-borders: theme(colors.zinc.200);
+
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--tw-prose-body);
+
+    @apply hc:text-zinc-900;
+
+    /* Headings */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--tw-prose-headings);
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    h1 {
+      font-size: var(--text-4xl);
+    }
+
+    h2 {
+      font-size: var(--text-3xl);
+    }
+
+    h3 {
+      font-size: var(--text-2xl);
+    }
+
+    h4 {
+      font-size: var(--text-xl);
+    }
+
+    /* Links */
+    a {
+      color: var(--tw-prose-links);
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    /* Strong */
+    strong {
+      color: var(--tw-prose-bold);
+      font-weight: 600;
+    }
+
+    /* Highlighted text */
+    mark {
+      @apply bg-primary-200 text-primary-900 px-1 rounded;
+      @apply hc:bg-primary-300;
+      font-weight: 500;
+    }
+
+    /* Paragraphs */
+    p {
+      margin-bottom: 1.25em;
+    }
+
+    /* Lead paragraph */
+    > p:first-of-type {
+      font-size: var(--text-lg);
+      @apply text-zinc-600 hc:text-zinc-800;
+    }
+
+    /* Lists */
+    ul,
+    ol {
+      margin-bottom: 1.25em;
+      padding-left: 1.625em;
+    }
+
+    ul {
+      list-style-type: disc;
+    }
+
+    ol {
+      list-style-type: decimal;
+    }
+
+    li {
+      margin-bottom: 0.5em;
+
+      &::marker {
+        color: theme(colors.zinc.400);
+      }
+    }
+
+    li > ul,
+    li > ol {
+      margin-top: 0.5em;
+      margin-bottom: 0;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      border-left: 4px solid theme(colors.primary.500);
+      padding-left: 1.5rem;
+      margin: 1.5em 0;
+      font-style: italic;
+      color: var(--tw-prose-quotes);
+      @apply hc:border-primary-700 hc:text-zinc-800;
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    /* Inline code (not inside pre) */
+    :not(pre) > code {
+      @apply bg-zinc-100 text-zinc-700 px-1.5 py-0.5 rounded;
+      @apply border border-zinc-300;
+      @apply hc:bg-zinc-200;
+      font-size: 0.8em;
+      font-weight: 500;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+    }
+
+    /* Pre (code blocks) */
+    pre {
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      margin: 1.5em 0;
+      @apply bg-zinc-900 text-zinc-100 p-4;
+
+      code {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: inherit;
+        white-space: pre;
+      }
+    }
+
+    /* Images */
+    img {
+      border-radius: 0.5rem;
+      margin: 1.5em 0;
+    }
+
+    /* Figures */
+    figure {
+      margin: 2rem 0;
+      text-align: center;
+
+      img {
+        margin: 0 auto;
+        display: inline-block;
+      }
+    }
+
+    figcaption {
+      text-align: center;
+      color: var(--tw-prose-captions);
+      font-size: var(--text-sm);
+      margin-top: 0.75rem;
+      @apply hc:text-zinc-700;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5em 0;
+    }
+
+    th {
+      @apply bg-zinc-100 font-semibold text-zinc-900;
+      @apply hc:bg-zinc-200;
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--tw-prose-borders);
+    }
+
+    td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--tw-prose-borders);
+    }
+
+    tr:nth-child(even) td {
+      @apply bg-zinc-50/50;
+    }
+
+    /* Horizontal rule */
+    hr {
+      border: none;
+      border-top: 1px solid var(--tw-prose-borders);
+      margin: 2em 0;
+      @apply hc:border-zinc-400;
+    }
+
+    /* Definition list */
+    dl {
+      margin-bottom: 1.25em;
+    }
+
+    dt {
+      @apply font-semibold text-zinc-900 mt-4;
+    }
+
+    dd {
+      @apply ml-4 text-zinc-600 hc:text-zinc-700;
+    }
+
+    /* Abbreviation */
+    abbr[title] {
+      @apply underline decoration-dotted cursor-help;
+    }
+
+    /* Keyboard input */
+    kbd {
+      @apply font-mono text-sm bg-zinc-100 text-zinc-800;
+      @apply px-2 py-0.5 rounded border border-zinc-300;
+      @apply shadow-sm;
+    }
+
+    /* Small text */
+    small {
+      @apply text-sm text-zinc-500 hc:text-zinc-700;
+    }
+  }
+
+  /* Prose size variants */
+  .prose-sm {
+    font-size: var(--text-sm);
+  }
+
+  .prose-lg {
+    font-size: var(--text-lg);
+  }
+
+  .prose-xl {
+    font-size: var(--text-xl);
+  }
+}
+
+@layer utilities {
+  /* Shiki code blocks - theme colors are inline, just add layout */
+  pre.shiki {
+    background-color: #f2f2f2 !important;
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    font-size: 0.875rem;
+    line-height: 1.6;
+
+    code {
+      background-color: transparent;
+      padding: 0;
+      font-size: inherit;
+      color: inherit;
+    }
+  }
+
+  /* Focus styles for keyboard-accessible pre elements */
+  pre:focus {
+    outline: 2px solid theme(colors.primary.500);
+    outline-offset: 2px;
+  }
+}

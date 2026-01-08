@@ -1,0 +1,81 @@
+{
+  "name": "electric-lime-11ty-starter",
+  "version": "1.0.0",
+  "description": "A vibrant lime-green themed 11ty starter with Nunjucks, Tailwind CSS, and Alpine.js",
+  "license": "MIT",
+  "author": {
+    "name": "FreshJuice",
+    "email": "contact@freshjuice.dev",
+    "url": "https://freshjuice.dev/"
+  },
+  "contributors": [
+    {
+      "name": "Alex Zappa",
+      "email": "alex@zappa.dev",
+      "url": "https://alex.zappa.dev/"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freshjuice-dev/electric-lime-11ty-starter.git"
+  },
+  "homepage": "https://github.com/freshjuice-dev/electric-lime-11ty-starter#readme",
+  "bugs": {
+    "url": "https://github.com/freshjuice-dev/electric-lime-11ty-starter/issues"
+  },
+  "keywords": [
+    "11ty",
+    "eleventy",
+    "starter",
+    "11ty-starter",
+    "template",
+    "nunjucks",
+    "tailwindcss",
+    "alpinejs",
+    "freshjuice"
+  ],
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf ./_site ./.cache",
+    "start": "ELEVENTY_ENV=development npm-run-all --parallel watch:*",
+    "dev": "npm run start",
+    "build": "ELEVENTY_ENV=production NODE_ENV=production npm-run-all --serial build:js build:css build:11ty postbuild",
+    "watch:11ty": "eleventy --serve --quiet",
+    "build:11ty": "eleventy",
+    "watch:js": "esbuild ./src/assets/js/main.js --outfile=./_site/assets/js/main.js --bundle --watch --sourcemap",
+    "build:js": "esbuild ./src/assets/js/main.js --outfile=./_site/assets/js/main.js --bundle --minify",
+    "watch:css": "npx @tailwindcss/cli -i ./src/assets/css/main.css -o ./_site/assets/css/main.css --watch",
+    "build:css": "npx @tailwindcss/cli -i ./src/assets/css/main.css -o ./_site/assets/css/main.css --minify",
+    "postbuild": "npm-run-all --parallel postbuild:*",
+    "postbuild:pagefind": "pagefind --site ./_site",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-img": "^6.0.4",
+    "@alpinejs/collapse": "^3.15.3",
+    "@alpinejs/intersect": "^3.15.3",
+    "@tailwindcss/cli": "^4.1.18",
+    "@zachleat/table-saw": "^1.0.7",
+    "alpinejs": "^3.15.3",
+    "eleventy-plugin-phosphoricons": "^2.0.0",
+    "eleventy-plugin-speculation-rules": "^2.0.0",
+    "esbuild": "^0.27.2",
+    "eslint": "^9.39.2",
+    "html-minifier-terser": "^7.2.0",
+    "linkedom": "^0.18.12",
+    "lite-youtube-embed": "^0.3.4",
+    "npm-run-all": "^4.1.5",
+    "pagefind": "^1.4.0",
+    "prettier": "^3.7.4",
+    "rimraf": "^6.0.1",
+    "shiki": "^3.21.0",
+    "tailwindcss": "^4.1.18",
+    "wrangler": "^4.58.0",
+    "yaml": "^2.8.2"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

@@ -1,0 +1,15 @@
+{# OneTrust Cookie Consent #}
+{% if consent.onetrust_id %}
+{% if consent.onetrust_auto_block %}
+<script src="https://cdn.cookielaw.org/consent/{{ consent.onetrust_id }}/OtAutoBlock.js" type="text/javascript"></script>
+{% endif %}
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-domain-script="{{ consent.onetrust_id }}" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+{% endif %}
+
+{# CookieBot (Usercentrics) Cookie Consent #}
+{% if consent.cookiebot_id %}
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="{{ consent.cookiebot_id }}" data-blockingmode="{{ consent.cookiebot_mode or 'auto' }}" type="text/javascript"></script>
+{% endif %}

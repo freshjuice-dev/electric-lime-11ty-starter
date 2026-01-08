@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+_site/
+.cache/
+
+# Documentation
+README.md
+CHANGELOG.md
+CONTRIBUTING.md
+LICENSE
+CLAUDE.md
+CONTEXT.md
+
+# Config files
+.editorconfig
+.eslintrc*
+.prettierrc*
+.gitignore
+.nvmrc
+netlify.toml
+vercel.json
+wrangler.toml
+
+# IDE
+.vscode/
+.idea/
+
+# Package files
+package.json
+package-lock.json

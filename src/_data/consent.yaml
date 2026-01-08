@@ -1,0 +1,10 @@
+# Cookie Consent Settings
+# Configure your cookie consent provider
+
+# OneTrust
+onetrust_id: ""
+onetrust_auto_block: true
+
+# CookieBot (Usercentrics)
+cookiebot_id: ""
+cookiebot_mode: "auto"

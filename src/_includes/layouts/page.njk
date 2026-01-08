@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+---
+{% from "_components/index.njk" import button %}
+
+<article class="section">
+  <div class="container max-w-4xl">
+    {# Page header #}
+    <header class="mb-12 text-center">
+      {% if subtitle %}
+        <p class="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2 hc:text-primary-800">
+          {{ subtitle }}
+        </p>
+      {% endif %}
+
+      <h1 class="text-balance">{{ title }}</h1>
+
+      {% if description %}
+        <p class="mt-4 text-xl text-zinc-600 text-pretty hc:text-zinc-700">
+          {{ description }}
+        </p>
+      {% endif %}
+    </header>
+
+    {# Page content #}
+    <div class="prose prose-lg mx-auto">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>

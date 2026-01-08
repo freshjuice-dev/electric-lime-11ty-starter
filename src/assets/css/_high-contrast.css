@@ -1,0 +1,62 @@
+/**
+ * High Contrast Mode Styles
+ * Applied when html has .high-contrast class
+ */
+
+html.high-contrast {
+  /* Override primary colors to darker versions for AAA contrast (7:1) */
+  --color-primary-200: var(--color-primary-400);
+  --color-primary-300: var(--color-primary-500);
+  --color-primary-400: var(--color-primary-600);
+  --color-primary-500: var(--color-primary-800);
+  --color-primary-600: var(--color-primary-900);
+  --color-primary-700: var(--color-primary-900);
+
+  /* Buttons get stronger contrast */
+  & .btn {
+    @apply font-bold;
+  }
+
+  /* Links always underlined with AAA contrast (7:1) */
+  & a:not(.btn):not(.nav-link) {
+    @apply underline;
+    color: #1a4d00 !important; /* Dark green for 7:1+ contrast on white */
+  }
+
+  & a:not(.btn):not(.nav-link):hover {
+    color: #0d2600 !important;
+  }
+
+  /* Code blocks - simplified colors for AAA contrast (7:1) */
+  & code[class*="language-"],
+  & pre[class*="language-"],
+  & pre[class*="language-"] *,
+  & pre.shiki,
+  & pre.shiki *,
+  & pre.shiki code,
+  & pre.shiki span,
+  & [class*="token"],
+  & .highlight-line {
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+
+  & pre[class*="language-"],
+  & pre.shiki,
+  & :not(pre) > code[class*="language-"] {
+    background: #fff !important;
+  }
+
+  /* Increased border visibility */
+  & .card,
+  & fieldset,
+  & table th,
+  & table td {
+    @apply border-zinc-500;
+  }
+
+  /* Stronger focus indicators */
+  & :focus-visible {
+    @apply outline-[3px] outline-offset-2 outline-primary-800;
+  }
+}

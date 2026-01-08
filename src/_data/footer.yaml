@@ -1,0 +1,32 @@
+# Footer Configuration
+
+columns:
+  - title: Pages
+    links:
+      - label: Home
+        url: /
+      - label: About
+        url: /about/
+      - label: Blog
+        url: /blog/
+      - label: Contact
+        url: /contact/
+
+  - title: Resources
+    links:
+      - label: Typography
+        url: /typography/
+      - label: Form Elements
+        url: /form-test/
+      - label: GitHub
+        url: https://github.com/freshjuice-dev/electric-lime-11ty-starter
+        external: true
+      - label: 404 Page
+        url: /404.html
+
+# Legal links
+legal:
+  - label: Privacy Policy
+    url: /privacy/
+  - label: Terms of Service
+    url: /terms/

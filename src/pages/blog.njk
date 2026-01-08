@@ -1,0 +1,97 @@
+---
+layout: layouts/base.njk
+title: Blog
+description: Articles, tutorials, and updates from the Electric Lime team.
+pagination:
+  data: collections.blog
+  size: 3
+  alias: posts
+permalink: "{% if pagination.pageNumber == 0 %}/blog/{% else %}/blog/page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+{% from "_components/index.njk" import card %}
+
+<section class="section">
+  <div class="container">
+    {# Page header #}
+    <header class="mb-12 text-center max-w-2xl mx-auto">
+      <h1>{{ title }}</h1>
+      <p class="mt-4 text-xl text-zinc-600 hc:text-zinc-700">
+        {{ description }}
+      </p>
+    </header>
+
+    {# Posts grid #}
+    {% if posts.length > 0 %}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for post in posts %}
+          {{ card({
+            title: post.data.title,
+            description: post.data.description,
+            url: post.url,
+            image: post.data.image,
+            image_alt: post.data.image_alt,
+            date: post.date,
+            tags: post.data.tags
+          }) }}
+        {% endfor %}
+      </div>
+
+      {# Pagination #}
+      {% if pagination.pages.length > 1 %}
+        <nav class="mt-12 flex items-center justify-center gap-1" aria-label="Blog pagination">
+          {# Previous arrow #}
+          {% if pagination.href.previous %}
+            <a
+              href="{{ pagination.href.previous }}"
+              class="w-10 h-10 flex items-center justify-center rounded-full text-zinc-600 hover:bg-zinc-100 hover:text-primary-700 transition-colors no-underline hc:text-zinc-800"
+              aria-label="Previous page"
+            >
+              {% phosphor "arrow-left", "bold", { size: 20 } %}
+            </a>
+          {% else %}
+            <span class="w-10 h-10 flex items-center justify-center rounded-full text-zinc-300 cursor-not-allowed hc:text-zinc-400" aria-hidden="true">
+              {% phosphor "arrow-left", "bold", { size: 20 } %}
+            </span>
+          {% endif %}
+
+          {# Page numbers #}
+          <div class="flex items-center gap-1 mx-2">
+            {% for pageEntry in pagination.pages %}
+              {% set pageNumber = loop.index %}
+              {% set pageUrl = pagination.hrefs[loop.index0] %}
+              {% if pageNumber == pagination.pageNumber + 1 %}
+                <span class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-700 text-white font-medium hc:bg-primary-800">
+                  {{ pageNumber }}
+                </span>
+              {% else %}
+                <a href="{{ pageUrl }}" class="w-10 h-10 flex items-center justify-center rounded-full text-zinc-600 hover:bg-zinc-100 font-medium no-underline transition-colors hc:text-zinc-800 hc:hover:underline">
+                  {{ pageNumber }}
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          {# Next arrow #}
+          {% if pagination.href.next %}
+            <a
+              href="{{ pagination.href.next }}"
+              class="w-10 h-10 flex items-center justify-center rounded-full text-zinc-600 hover:bg-zinc-100 hover:text-primary-700 transition-colors no-underline hc:text-zinc-800"
+              aria-label="Next page"
+            >
+              {% phosphor "arrow-right", "bold", { size: 20 } %}
+            </a>
+          {% else %}
+            <span class="w-10 h-10 flex items-center justify-center rounded-full text-zinc-300 cursor-not-allowed hc:text-zinc-400" aria-hidden="true">
+              {% phosphor "arrow-right", "bold", { size: 20 } %}
+            </span>
+          {% endif %}
+        </nav>
+      {% endif %}
+
+    {% else %}
+      <div class="text-center py-12">
+        <p class="text-lg text-zinc-600 hc:text-zinc-700">No posts yet. Check back soon!</p>
+      </div>
+    {% endif %}
+  </div>
+</section>

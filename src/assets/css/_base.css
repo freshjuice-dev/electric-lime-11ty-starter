@@ -1,0 +1,128 @@
+/**
+ * Base styles and CSS reset
+ */
+
+@layer base {
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better box sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Body defaults */
+  body {
+    @apply bg-white text-zinc-900 antialiased;
+    @apply font-sans text-base leading-normal;
+    text-rendering: optimizeLegibility;
+    font-feature-settings:
+      "kern" 1,
+      "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-wrap: pretty;
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-600;
+  }
+
+  /* Skip link for accessibility */
+  .skip-link {
+    @apply sr-only focus:not-sr-only;
+    @apply fixed top-4 left-4 z-50;
+    @apply bg-primary-700 text-white;
+    @apply px-4 py-2 rounded-lg font-semibold;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-primary-200 text-primary-950;
+  }
+
+  /* Better media defaults */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Remove default button styles */
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  /* Links */
+  a {
+    @apply text-primary-700 transition-colors duration-200;
+    @apply hover:text-primary-800;
+    @apply hc:underline;
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold text-zinc-900 leading-tight;
+    text-wrap: pretty;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg;
+  }
+
+  /* Horizontal rule */
+  hr {
+    @apply border-t border-zinc-200 my-8;
+  }
+
+  /* Code */
+  code {
+    @apply font-mono text-sm bg-zinc-100 text-zinc-800 px-1.5 py-0.5 rounded;
+  }
+
+  pre {
+    @apply font-mono text-sm bg-zinc-900 text-zinc-100 p-4 rounded-lg overflow-x-auto;
+  }
+
+  pre code {
+    @apply bg-transparent text-inherit p-0;
+  }
+}

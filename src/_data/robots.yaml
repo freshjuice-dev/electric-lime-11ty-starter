@@ -1,0 +1,5 @@
+# Search engine crawler rules
+
+crawler_rules: |
+  User-agent: *
+  Allow: /

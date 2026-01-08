@@ -1,0 +1,203 @@
+---
+layout: layouts/base.njk
+title: Home
+description: A vibrant 11ty starter with Tailwind CSS and Alpine.js. Fast, accessible, and beautifully designed.
+permalink: /index.html
+---
+{% from "_components/index.njk" import button, card, badge, accordion %}
+
+{# Hero Section #}
+<section class="section bg-gradient-to-b from-primary-50 to-white">
+  <div class="container text-center">
+    <div class="max-w-3xl mx-auto">
+      {{ badge({ text: "11ty + Tailwind + Alpine", variant: "primary", className: "mb-4" }) }}
+
+      <h1 class="text-balance">
+        Build <span class="text-gradient">stunning websites</span> with Electric Lime
+      </h1>
+
+      <p class="mt-6 text-xl text-zinc-600 text-pretty hc:text-zinc-700">
+        A blazing-fast 11ty starter kit featuring Nunjucks templates, Tailwind CSS v4,
+        and Alpine.js. Fully accessible with built-in high contrast mode.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
+        {{ button({
+          text: "Get Started",
+          url: "/contact/",
+          variant: "primary",
+          size: "lg"
+        }) }}
+
+        {{ button({
+          text: "View on GitHub",
+          url: "https://github.com/freshjuice-dev/electric-lime-11ty-starter",
+          variant: "outline",
+          size: "lg",
+          external: true
+        }) }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# Features Section #}
+<section class="section">
+  <div class="container">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2>Everything you need</h2>
+      <p class="mt-4 text-lg text-zinc-600 hc:text-zinc-700">
+        Built with modern tools and best practices for the best developer experience.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {# Feature 1 #}
+      <div class="card">
+        <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 hc:bg-primary-200">
+          <span class="text-2xl">🚀</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Blazing Fast</h3>
+        <p class="text-zinc-600 hc:text-zinc-700">
+          11ty generates static HTML at build time for lightning-fast page loads.
+        </p>
+      </div>
+
+      {# Feature 2 #}
+      <div class="card">
+        <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 hc:bg-primary-200">
+          <span class="text-2xl">🎨</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Tailwind CSS v4</h3>
+        <p class="text-zinc-600 hc:text-zinc-700">
+          Modern utility-first CSS with the latest Tailwind features and @theme support.
+        </p>
+      </div>
+
+      {# Feature 3 #}
+      <div class="card">
+        <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 hc:bg-primary-200">
+          <span class="text-2xl">⚡</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Alpine.js</h3>
+        <p class="text-zinc-600 hc:text-zinc-700">
+          Lightweight JavaScript for interactive components without the overhead.
+        </p>
+      </div>
+
+      {# Feature 4 #}
+      <div class="card">
+        <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 hc:bg-primary-200">
+          <span class="text-2xl">♿</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Accessible</h3>
+        <p class="text-zinc-600 hc:text-zinc-700">
+          WCAG AA compliant with built-in high contrast mode toggle.
+        </p>
+      </div>
+
+      {# Feature 5 #}
+      <div class="card">
+        <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 hc:bg-primary-200">
+          <span class="text-2xl">📱</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Responsive</h3>
+        <p class="text-zinc-600 hc:text-zinc-700">
+          Mobile-first design that looks great on any device.
+        </p>
+      </div>
+
+      {# Feature 6 #}
+      <div class="card">
+        <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 hc:bg-primary-200">
+          <span class="text-2xl">🔧</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Easy to Customize</h3>
+        <p class="text-zinc-600 hc:text-zinc-700">
+          Modular architecture with clear patterns for easy customization.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# Latest Posts Section #}
+<section class="section bg-zinc-50 hc:bg-zinc-100">
+  <div class="container">
+    <div class="flex items-center justify-between mb-12">
+      <h2>Latest Posts</h2>
+      {{ button({
+        text: "View All",
+        url: "/blog/",
+        variant: "ghost"
+      }) }}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for post in collections.blog | limit(3) %}
+        {{ card({
+          title: post.data.title,
+          description: post.data.description,
+          url: post.url,
+          image: post.data.image,
+          image_alt: post.data.image_alt,
+          date: post.date,
+          tags: post.data.tags
+        }) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# FAQ Section #}
+<section class="section">
+  <div class="container max-w-3xl">
+    <div class="text-center mb-12">
+      <h2>Frequently Asked Questions</h2>
+      <p class="mt-4 text-lg text-zinc-600 hc:text-zinc-700">
+        Common questions about the Electric Lime starter.
+      </p>
+    </div>
+
+    {{ accordion({
+      items: [
+        {
+          question: "What is 11ty (Eleventy)?",
+          answer: "<p>11ty is a simpler static site generator. It transforms templates into HTML pages, resulting in fast, secure websites that are easy to deploy anywhere.</p>"
+        },
+        {
+          question: "Why Tailwind CSS v4?",
+          answer: "<p>Tailwind v4 introduces the new @theme system, improved performance, and better integration with modern CSS features like color-mix() and oklch colors.</p>"
+        },
+        {
+          question: "How does the high contrast mode work?",
+          answer: "<p>The high contrast mode adds stronger colors and borders for users who prefer increased visual contrast. It respects the user's OS preference and can be toggled manually.</p>"
+        },
+        {
+          question: "Can I use this for commercial projects?",
+          answer: "<p>Yes! This starter is MIT licensed, so you can use it for any project, personal or commercial.</p>"
+        }
+      ]
+    }) }}
+  </div>
+</section>
+
+{# CTA Section #}
+<section class="section bg-primary-700 text-white">
+  <div class="container text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-white">Ready to get started?</h2>
+      <p class="mt-4 text-lg text-primary-100 hc:text-white">
+        Clone the repo and start building your next project in minutes.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
+        {{ button({
+          text: "Get Started",
+          url: "/contact/",
+          variant: "white",
+          size: "lg"
+        }) }}
+      </div>
+    </div>
+  </div>
+</section>

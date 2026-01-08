@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/freshjuice-dev/electric-lime-11ty-starter#readme
+    about: Check the README for setup and usage instructions
+  - name: Discussions
+    url: https://github.com/freshjuice-dev/electric-lime-11ty-starter/discussions
+    about: Ask questions and discuss ideas

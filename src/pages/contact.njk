@@ -1,0 +1,76 @@
+---
+title: Contact
+description: Get in touch with us. We'd love to hear from you.
+---
+{% from "_components/index.njk" import button, alert %}
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+  <div>
+    <p class="text-lg text-zinc-600 mb-8 hc:text-zinc-700">
+      Have a question or want to work together? Fill out the form and we'll get back to you as soon as possible.
+    </p>
+
+    <div class="space-y-6">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0 hc:bg-primary-200">
+          <span class="text-lg">📧</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-zinc-900">Email</h3>
+          <a href="mailto:{{ metadata.email }}" class="text-zinc-600 hover:text-primary-700 hc:text-zinc-700">
+            {{ metadata.email }}
+          </a>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0 hc:bg-primary-200">
+          <span class="text-lg">🐙</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-zinc-900">GitHub</h3>
+          <a href="https://github.com/freshjuice-dev/electric-lime-11ty-starter" class="text-zinc-600 hover:text-primary-700 hc:text-zinc-700" target="_blank" rel="noopener noreferrer">
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <form action="#" method="POST" class="space-y-6">
+      <div class="form-group">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your name">
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="subject" class="form-label">Subject</label>
+        <select id="subject" name="subject" required>
+          <option value="">Select a subject</option>
+          <option value="general">General Inquiry</option>
+          <option value="support">Support</option>
+          <option value="feedback">Feedback</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="How can we help?"></textarea>
+      </div>
+
+      {{ button({
+        text: "Send Message",
+        type: "submit",
+        variant: "primary",
+        full: true
+      }) }}
+    </form>
+  </div>
+</div>

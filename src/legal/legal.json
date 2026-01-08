@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/legal.njk",
+  "tags": "legal",
+  "eleventyComputed": {
+    "permalink": "/{{ page.fileSlug }}/"
+  }
+}

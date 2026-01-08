@@ -1,0 +1,16 @@
+# Analytics & Tracking Settings
+# Add your tracking IDs here
+
+# Site Verification
+google_site_verification: ""
+bing_site_verification: ""
+
+# Analytics
+google_analytics_id: ""
+google_tag_manager_id: ""
+
+# Marketing Pixels
+facebook_pixel_id: ""
+microsoft_clarity_id: ""
+bing_uet_id: ""
+hubspot_id: ""

@@ -1,0 +1,100 @@
+---
+layout: layouts/base.njk
+---
+{% from "_components/index.njk" import button, badge, authorCard %}
+
+<article class="section">
+  <div class="container max-w-4xl">
+    {# Back link #}
+    <nav class="mb-8">
+      <a href="/blog/" class="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-primary-700 transition-colors no-underline hc:text-zinc-900">
+        {% phosphor "arrow-left", "bold", { size: 16 } %}
+        <span>Back to Blog</span>
+      </a>
+    </nav>
+
+    {# Post header #}
+    <header class="mb-12">
+      {# Tags #}
+      {% if tags and tags.length > 0 %}
+        <div class="flex flex-wrap gap-2 mb-4">
+          {% for tag in tags %}
+            {% if tag !== "blog" %}
+              {{ badge({ text: tag, variant: "primary" }) }}
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <h1 class="text-balance">{{ title }}</h1>
+
+      {% if description %}
+        <p class="mt-4 text-xl text-zinc-600 text-pretty hc:text-zinc-700">
+          {{ description }}
+        </p>
+      {% endif %}
+
+      {# Meta info #}
+      <div class="flex flex-wrap items-center gap-4 mt-6 text-sm text-zinc-500 hc:text-zinc-700">
+        {% if date %}
+          <time datetime="{{ date | dateToISOString }}">
+            {{ date | readableDate }}
+          </time>
+        {% endif %}
+
+        {% if author %}
+          {% set authorData = author | getAuthor(collections.authors) %}
+          {% if authorData %}
+            <span class="flex items-center gap-2">
+              <span>by</span>
+              <a href="/authors/{{ author }}/" class="font-medium text-zinc-700 hover:text-primary-700 hc:text-zinc-900">
+                {{ authorData.data.name }}
+              </a>
+            </span>
+          {% endif %}
+        {% endif %}
+      </div>
+    </header>
+
+    {# Featured image #}
+    {% if image %}
+      <figure class="mb-12 -mx-4 sm:mx-0">
+        <img
+          src="{{ image }}"
+          alt="{{ image_alt | default(title) }}"
+          class="w-full rounded-2xl"
+          loading="eager"
+        >
+        {% if image_caption %}
+          <figcaption class="text-center text-sm text-zinc-500 mt-3 hc:text-zinc-700">
+            {{ image_caption }}
+          </figcaption>
+        {% endif %}
+      </figure>
+    {% endif %}
+
+    {# Post content #}
+    <div class="prose prose-lg mx-auto">
+      {{ content | safe }}
+    </div>
+
+    {# Author card #}
+    {% if author %}
+      {% set authorData = author | getAuthor(collections.authors) %}
+      {% if authorData %}
+        <footer class="mt-16 pt-8 border-t border-zinc-200 hc:border-zinc-400">
+          <h2 class="text-lg font-semibold text-zinc-900 mb-4">About the Author</h2>
+          {{ authorCard({
+            name: authorData.data.name,
+            bio: authorData.data.bio,
+            avatar: authorData.data.avatar,
+            url: "/authors/" + author + "/",
+            twitter: authorData.data.twitter,
+            linkedin: authorData.data.linkedin,
+            github: authorData.data.github
+          }) }}
+        </footer>
+      {% endif %}
+    {% endif %}
+  </div>
+</article>

@@ -1,0 +1,308 @@
+---
+layout: layouts/base.njk
+title: "Form Elements"
+description: "Form elements showcase demonstrating all input types and form controls."
+permalink: /form-test/
+eleventyExcludeFromCollections: true
+noindex: true
+---
+<div class="container mx-auto px-4 py-12">
+  <div class="max-w-3xl mx-auto">
+    <div class="prose mb-8">
+      <h1>Form Elements</h1>
+      <p>This page demonstrates all form elements and input types available in this theme.</p>
+    </div>
+
+    <form class="space-y-8" onsubmit="event.preventDefault(); alert('Form submitted!');">
+
+      {# Text Inputs #}
+      <fieldset class="space-y-4">
+        <legend class="text-lg font-semibold mb-4">Text Inputs</legend>
+
+        <div class="form-group">
+          <label for="text">Text Input</label>
+          <input type="text" id="text" name="text" placeholder="Enter text...">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Input</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password Input</label>
+          <input type="password" id="password" name="password" placeholder="Enter password...">
+        </div>
+
+        <div class="form-group">
+          <label for="url">URL Input</label>
+          <input type="url" id="url" name="url" placeholder="https://example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="tel">Telephone Input</label>
+          <input type="tel" id="tel" name="tel" placeholder="+1 (555) 000-0000">
+        </div>
+
+        <div class="form-group">
+          <label for="search">Search Input</label>
+          <input type="search" id="search" name="search" placeholder="Search...">
+        </div>
+      </fieldset>
+
+      {# Number Inputs #}
+      <fieldset class="space-y-4">
+        <legend class="text-lg font-semibold mb-4">Number Inputs</legend>
+
+        <div class="form-group">
+          <label for="number">Number Input</label>
+          <input type="number" id="number" name="number" placeholder="0" min="0" max="100">
+        </div>
+
+        <div class="form-group">
+          <label for="range">Range Input</label>
+          <input type="range" id="range" name="range" min="0" max="100" value="50">
+        </div>
+      </fieldset>
+
+      {# Date & Time Inputs #}
+      <fieldset class="space-y-4">
+        <legend class="text-lg font-semibold mb-4">Date & Time Inputs</legend>
+
+        <div class="form-group">
+          <label for="date">Date Input</label>
+          <input type="date" id="date" name="date">
+        </div>
+
+        <div class="form-group">
+          <label for="time">Time Input</label>
+          <input type="time" id="time" name="time">
+        </div>
+
+        <div class="form-group">
+          <label for="datetime-local">DateTime Local Input</label>
+          <input type="datetime-local" id="datetime-local" name="datetime-local">
+        </div>
+
+        <div class="form-group">
+          <label for="month">Month Input</label>
+          <input type="month" id="month" name="month">
+        </div>
+
+        <div class="form-group">
+          <label for="week">Week Input</label>
+          <input type="week" id="week" name="week">
+        </div>
+      </fieldset>
+
+      {# Other Inputs #}
+      <fieldset class="space-y-4">
+        <legend class="text-lg font-semibold mb-4">Other Inputs</legend>
+
+        <div class="form-group">
+          <label for="color">Color Input</label>
+          <input type="color" id="color" name="color" value="#65a30d">
+        </div>
+
+        <div class="form-group">
+          <label for="file">File Input</label>
+          <input type="file" id="file" name="file">
+        </div>
+
+        <div class="form-group">
+          <label for="hidden">Hidden Input (not visible)</label>
+          <input type="hidden" id="hidden" name="hidden" value="hidden-value">
+          <span class="text-sm text-zinc-500 hc:text-zinc-700">Hidden inputs are not displayed</span>
+        </div>
+      </fieldset>
+
+      {# Textarea #}
+      <fieldset class="space-y-4">
+        <legend class="text-lg font-semibold mb-4">Textarea</legend>
+
+        <div class="form-group">
+          <label for="textarea">Textarea</label>
+          <textarea id="textarea" name="textarea" rows="4" placeholder="Enter your message..."></textarea>
+        </div>
+      </fieldset>
+
+      {# Select #}
+      <fieldset class="space-y-4">
+        <legend class="text-lg font-semibold mb-4">Select Dropdowns</legend>
+
+        <div class="form-group">
+          <label for="select">Single Select</label>
+          <select id="select" name="select">
+            <option value="">Choose an option...</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="select-multiple">Multiple Select</label>
+          <select id="select-multiple" name="select-multiple" multiple size="4">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+            <option value="5">Option 5</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="select-optgroup">Select with Option Groups</label>
+          <select id="select-optgroup" name="select-optgroup">
+            <option value="">Choose an option...</option>
+            <optgroup label="Group 1">
+              <option value="1-1">Option 1.1</option>
+              <option value="1-2">Option 1.2</option>
+            </optgroup>
+            <optgroup label="Group 2">
+              <option value="2-1">Option 2.1</option>
+              <option value="2-2">Option 2.2</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="datalist">Input with Datalist</label>
+          <input type="text" id="datalist" name="datalist" list="datalist-options" placeholder="Type or select...">
+          <datalist id="datalist-options">
+            <option value="Apple">
+            <option value="Banana">
+            <option value="Cherry">
+            <option value="Date">
+            <option value="Elderberry">
+          </datalist>
+        </div>
+      </fieldset>
+
+      {# Checkboxes & Radio #}
+      <fieldset class="space-y-4">
+        <legend class="text-lg font-semibold mb-4">Checkboxes & Radio Buttons</legend>
+
+        <div class="space-y-2">
+          <p class="font-medium">Checkboxes</p>
+          <label class="form-check">
+            <input type="checkbox" name="checkbox" value="1">
+            <span>Checkbox option 1</span>
+          </label>
+          <label class="form-check">
+            <input type="checkbox" name="checkbox" value="2" checked>
+            <span>Checkbox option 2 (checked)</span>
+          </label>
+          <label class="form-check">
+            <input type="checkbox" name="checkbox" value="3" disabled>
+            <span>Checkbox option 3 (disabled)</span>
+          </label>
+        </div>
+
+        <div class="space-y-2">
+          <p class="font-medium">Radio Buttons</p>
+          <label class="form-check">
+            <input type="radio" name="radio" value="1">
+            <span>Radio option 1</span>
+          </label>
+          <label class="form-check">
+            <input type="radio" name="radio" value="2" checked>
+            <span>Radio option 2 (checked)</span>
+          </label>
+          <label class="form-check">
+            <input type="radio" name="radio" value="3" disabled>
+            <span>Radio option 3 (disabled)</span>
+          </label>
+        </div>
+      </fieldset>
+
+      {# Input States #}
+      <fieldset class="space-y-4">
+        <legend class="text-lg font-semibold mb-4">Input States</legend>
+
+        <div class="form-group">
+          <label for="disabled">Disabled Input</label>
+          <input type="text" id="disabled" name="disabled" placeholder="Disabled input" disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="readonly">Readonly Input</label>
+          <input type="text" id="readonly" name="readonly" value="Readonly value" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="required">Required Input <span class="text-red-500">*</span></label>
+          <input type="text" id="required" name="required" placeholder="This field is required" required>
+        </div>
+
+        <div class="form-group">
+          <label for="with-help">Input with Help Text</label>
+          <input type="text" id="with-help" name="with-help" placeholder="Enter something...">
+          <p class="form-help">This is help text that provides additional context.</p>
+        </div>
+
+        <div class="form-group form-error">
+          <label for="with-error">Input with Error</label>
+          <input type="text" id="with-error" name="with-error" value="Invalid value">
+          <p class="form-help">This field has an error.</p>
+        </div>
+
+        <div class="form-group form-success">
+          <label for="with-success">Input with Success</label>
+          <input type="text" id="with-success" name="with-success" value="Valid value">
+          <p class="form-help">This field is valid.</p>
+        </div>
+      </fieldset>
+
+      {# Buttons #}
+      <fieldset class="space-y-4">
+        <legend class="text-lg font-semibold mb-4">Buttons</legend>
+
+        <div class="flex flex-wrap gap-3">
+          <button type="submit" class="btn">Submit</button>
+          <button type="button" class="btn btn--secondary">Secondary</button>
+          <button type="button" class="btn btn--outline">Outline</button>
+          <button type="button" class="btn btn--ghost">Ghost</button>
+          <button type="reset" class="btn btn--danger">Reset</button>
+          <button type="button" class="btn" disabled>Disabled</button>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <button type="button" class="btn btn--xs">Extra Small</button>
+          <button type="button" class="btn btn--sm">Small</button>
+          <button type="button" class="btn btn--md">Medium</button>
+          <button type="button" class="btn btn--lg">Large</button>
+        </div>
+      </fieldset>
+
+      {# Progress & Meter #}
+      <fieldset class="space-y-4">
+        <legend class="text-lg font-semibold mb-4">Progress & Meter</legend>
+
+        <div class="form-group">
+          <label for="progress">Progress</label>
+          <progress id="progress" value="70" max="100" class="w-full">70%</progress>
+        </div>
+
+        <div class="form-group">
+          <label for="meter">Meter</label>
+          <meter id="meter" value="0.7" min="0" max="1" low="0.3" high="0.7" optimum="0.8" class="w-full">70%</meter>
+        </div>
+      </fieldset>
+
+      {# Output #}
+      <fieldset class="space-y-4">
+        <legend class="text-lg font-semibold mb-4">Output</legend>
+
+        <div class="form-group">
+          <label for="output-range">Range with Output</label>
+          <div class="flex items-center gap-4">
+            <input type="range" id="output-range" name="output-range" min="0" max="100" value="50" oninput="outputValue.value = this.value" class="flex-1">
+            <output id="outputValue" name="outputValue" for="output-range">50</output>
+          </div>
+        </div>
+      </fieldset>
+
+    </form>
+  </div>
+</div>

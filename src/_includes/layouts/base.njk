@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="{{ metadata.language | default('en') }}" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {# High contrast initialization - runs before content loads to prevent flash #}
+  <script>
+    (function(){
+      document.documentElement.classList.remove('no-js');
+      const h = localStorage.getItem("highContrast");
+      const c = h !== null ? h === "true" : window.matchMedia("(prefers-contrast: more)").matches;
+      if (h === null) localStorage.setItem("highContrast", c);
+      if (c) document.documentElement.classList.add("high-contrast");
+    })();
+  </script>
+
+  {# Meta tags #}
+  {% include "partials/metatags.njk" %}
+
+  {# CSS #}
+  <link rel="stylesheet" href="/assets/css/main.css?v={{ build.timestamp.raw }}">
+
+  {# GitHub Fork Ribbon #}
+  {% if theme.show_github_ribbon %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+  <style>.github-fork-ribbon:before { background-color: #65a30d; }</style>
+  {% endif %}
+
+  {# RSS Feed #}
+  <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="/feed.xml">
+
+  {# Cookie Consent #}
+  {% include "partials/cookies.njk" %}
+
+  {# Analytics & Tracking #}
+  {% include "partials/tracking.njk" %}
+</head>
+<body class="min-h-screen flex flex-col bg-white text-zinc-900 antialiased">
+  {# Tailwind safelist for dynamically generated classes (not rendered) #}
+  <!--
+    btn--primary btn--secondary btn--outline btn--ghost btn--white btn--danger
+    btn--xs btn--sm btn--md btn--lg btn--full
+    pager--link pager--current pager--disabled pager--ellipsis
+    badge--primary badge--secondary badge--success badge--warning badge--error
+    alert--info alert--success alert--warning alert--error
+  -->
+  {# Skip link for accessibility #}
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  {# Header #}
+  {% include "partials/header.njk" %}
+
+  {# Main content #}
+  <main id="main-content" class="flex-1">
+    {{ content | safe }}
+  </main>
+
+  {# Footer #}
+  {% include "partials/footer.njk" %}
+
+  {# JavaScript #}
+  <script defer src="/assets/js/main.js?v={{ build.timestamp.raw }}"></script>
+
+  {# Pagefind search (only on pages with pagefind: true) #}
+  {% if pagefind %}
+  <script src="/pagefind/pagefind-ui.js?v={{ build.timestamp.raw }}" onload="new PagefindUI({ element: '#pagefind', showSubResults: true, showImages: false });"></script>
+  {% endif %}
+
+  {# GitHub Fork Ribbon #}
+  {% if theme.show_github_ribbon %}
+  <a class="github-fork-ribbon fixed" href="https://github.com/{{ build.issues.owner }}/{{ build.issues.repo }}" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+  {% endif %}
+</body>
+</html>

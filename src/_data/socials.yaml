@@ -1,0 +1,12 @@
+# Social Media Links
+- platform: x
+  label: X (Twitter)
+  url: https://x.com/FreshJuiceDev
+
+- platform: github
+  label: GitHub
+  url: https://github.com/freshjuice-dev
+
+- platform: linkedin
+  label: LinkedIn
+  url: https://www.linkedin.com/company/freshjuice

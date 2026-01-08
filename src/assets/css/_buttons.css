@@ -1,0 +1,96 @@
+@layer components {
+  .btn {
+    @apply px-6 py-2.5 text-base bg-primary-700 rounded-full shadow-md no-underline;
+    @apply text-white font-semibold cursor-pointer;
+    @apply inline-flex items-center justify-center gap-3;
+    @apply border-primary-700 border-2 hover:brightness-110;
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:-translate-y-0.5 hover:shadow-lg;
+    @apply whitespace-nowrap !no-underline;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none;
+    @apply hc:bg-primary-800 hc:border-primary-800;
+  }
+
+  .pager {
+    @apply inline-flex items-center justify-center;
+    @apply w-10 h-10 text-sm font-medium;
+    @apply rounded-full transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+}
+
+/* Button variants */
+@utility btn--primary {
+  @apply text-white bg-primary-700 border-primary-700;
+  @apply hc:bg-primary-800 hc:border-primary-800;
+}
+
+@utility btn--secondary {
+  @apply text-primary-700 bg-zinc-50 border-current;
+  @apply hc:text-primary-800;
+}
+
+@utility btn--outline {
+  @apply text-primary-700 bg-transparent border-primary-700 hover:bg-primary-700 hover:text-white;
+  @apply hc:text-primary-800 hc:border-primary-800;
+}
+
+@utility btn--ghost {
+  @apply text-zinc-700 bg-transparent border-transparent shadow-none hover:bg-zinc-100;
+  @apply hc:text-zinc-800 hc:hover:underline;
+}
+
+@utility btn--white {
+  @apply text-primary-800 bg-white border-white shadow-lg;
+  @apply hover:bg-zinc-50 hover:text-primary-900;
+  @apply focus:ring-white;
+}
+
+@utility btn--danger {
+  @apply bg-zinc-900 border-zinc-900 focus:ring-zinc-500;
+}
+
+@utility btn--disabled {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+/* Button sizes */
+@utility btn--xs {
+  @apply px-3 py-1 text-xs gap-1.5;
+}
+
+@utility btn--sm {
+  @apply px-4 py-1.5 text-sm gap-2;
+}
+
+@utility btn--md {
+  @apply px-6 py-2.5 text-base gap-3;
+}
+
+@utility btn--lg {
+  @apply px-8 py-3.5 text-lg gap-3;
+}
+
+@utility btn--full {
+  @apply w-full;
+}
+
+/* Pagination variants */
+@utility pager--link {
+  @apply text-zinc-700 bg-white border border-zinc-300 hover:bg-zinc-50 hover:border-zinc-400;
+  @apply hc:text-zinc-800;
+}
+
+@utility pager--current {
+  @apply text-white bg-primary-700 border border-primary-700;
+  @apply hc:bg-primary-800 hc:border-primary-800;
+}
+
+@utility pager--disabled {
+  @apply text-zinc-500 bg-zinc-100 border border-zinc-200 cursor-not-allowed;
+}
+
+@utility pager--ellipsis {
+  @apply text-zinc-500 cursor-default;
+}

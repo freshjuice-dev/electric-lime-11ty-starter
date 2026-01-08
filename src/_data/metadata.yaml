@@ -1,0 +1,12 @@
+# Site Metadata
+title: Electric Lime
+description: A vibrant 11ty starter with Tailwind CSS and Alpine.js. Fast, accessible, and beautifully designed.
+url: https://electric-lime-starter.freshjuice.dev
+language: en
+author: FreshJuice
+email: contact@freshjuice.dev
+
+# Social/SEO
+twitter: "@FreshJuiceDev"
+image: /assets/images/og-placeholder.png
+themeColor: "#65a30d"

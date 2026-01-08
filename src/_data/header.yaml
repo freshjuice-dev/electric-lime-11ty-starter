@@ -1,0 +1,18 @@
+# Header Navigation
+navigation:
+  - label: Home
+    url: /
+  - label: About
+    url: /about/
+  - label: Blog
+    url: /blog/
+  - label: Contact
+    url: /contact/
+
+# Show search icon in header
+show_search: true
+
+# Call to action button
+cta:
+  label: Get Started
+  url: /contact/
