@@ -70,7 +70,7 @@
     "pagefind": "^1.4.0",
     "prettier": "^3.7.4",
     "rimraf": "^6.0.1",
-    "shiki": "^3.21.0",
+    "shiki": "^4.0.0",
     "tailwindcss": "^4.1.18",
     "wrangler": "^4.58.0",
     "yaml": "^2.8.2"
