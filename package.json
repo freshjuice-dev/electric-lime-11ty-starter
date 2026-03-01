@@ -62,7 +62,7 @@
     "eleventy-plugin-phosphoricons": "^2.0.0",
     "eleventy-plugin-speculation-rules": "^2.0.0",
     "esbuild": "^0.27.2",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.2",
     "html-minifier-terser": "^7.2.0",
     "linkedom": "^0.18.12",
     "lite-youtube-embed": "^0.3.4",
