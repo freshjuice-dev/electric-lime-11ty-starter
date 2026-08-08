@@ -1,5 +1,6 @@
 # Electric Lime 11ty Starter
 
+> ⚠️ PRIVATE REPOSITORY — Proprietary and confidential. See [LICENSE](LICENSE).
 <img src="src/assets/images/og-placeholder.png" alt="FreshJuice 11ty Starter" width="450">
 
 A vibrant, fast, and accessible starter theme for building static websites with [Eleventy](https://www.11ty.dev/), [TailwindCSS v4](https://tailwindcss.com/), and [Alpine.js](https://alpinejs.dev/).
